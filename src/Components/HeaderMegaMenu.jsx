@@ -147,7 +147,7 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <Header height={60} px="md">
+    <Header height={60} px="md" style={{ position: "fixed" }}>
       <Group position="apart" sx={{ height: "100%" }}>
         <MantineLogo size={30} />
 

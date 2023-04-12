@@ -1,7 +1,7 @@
 import React from "react";
-import HeroSection from "../Sections/HeroSection";
-import ChatSection from "../Sections/ChatSection";
-import ContactUsSection from "../Sections/ContactUsSection";
+import HeroSection from "../Components/LandingSections/HeroSection";
+import ChatSection from "../Components/LandingSections/ChatSection";
+import ContactUsSection from "../Components/LandingSections/ContactUsSection";
 
 const Home = () => {
   return (

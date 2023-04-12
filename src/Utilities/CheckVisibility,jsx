@@ -1,0 +1,13 @@
+const isElementEntered = (elementId) => {
+  // Get the element by ID
+  const element = document.getElementById(elementId);
+
+  // Check if the element is in the viewport
+  if (element && element.getBoundingClientRect().top < window.innerHeight) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export default isElementEntered;
