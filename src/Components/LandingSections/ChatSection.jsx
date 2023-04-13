@@ -4,6 +4,7 @@ import ChatSectionData from "../../Data/ChatSectionData";
 import ShuffledArray from "../../Utilities/ShuffledArray";
 import Message from "../Message";
 import WaitingMassage from "../WaitingMassage";
+import SectionDecoration from "../SectionDecoration";
 
 const TIMEDELAY = 10;
 const USERAVATAR =
@@ -107,12 +108,15 @@ const ChatSection = () => {
   }, [isElementEntered]);
 
   return (
-    <SectionContainer>
-      <ChatArea id="ChatArea" ref={containerRef}>
-        {messages}
-        <WaitingMassage avatar={BOTAVATAR} waitStat={waitStat} />
-      </ChatArea>
-    </SectionContainer>
+    <>
+      <SectionDecoration right={0} />
+      <SectionContainer>
+        <ChatArea id="ChatArea" ref={containerRef}>
+          {messages}
+          <WaitingMassage avatar={BOTAVATAR} waitStat={waitStat} />
+        </ChatArea>
+      </SectionContainer>
+    </>
   );
 };
 
@@ -129,6 +133,8 @@ const ChatArea = styled.div`
   background-color: #1d1e23;
   border-radius: 20px;
   overflow-y: auto;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 800px) {
     padding: 0.7rem;

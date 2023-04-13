@@ -2,21 +2,12 @@ import React from "react";
 import {
   createStyles,
   Header,
-  HoverCard,
   Group,
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
-  Divider,
-  Center,
-  Box,
   Burger,
-  Drawer,
-  Collapse,
-  ScrollArea,
   rem,
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
@@ -28,7 +19,6 @@ import {
   IconChartPie3,
   IconFingerprint,
   IconCoin,
-  IconChevronDown,
 } from "@tabler/icons-react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -40,9 +30,10 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     textDecoration: "none",
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    fontWeight: 500,
-    fontSize: theme.fontSizes.sm,
+    color: "#FFFFFF",
+    fontWeight: 600,
+    fontSize: "18px",
+    lineHeight: "24px",
 
     [theme.fn.smallerThan("sm")]: {
       height: rem(42),
@@ -54,16 +45,24 @@ const useStyles = createStyles((theme) => ({
     ...theme.fn.hover({
       backgroundColor:
         theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+          ? theme.colors.gray[0]
+          : theme.colors.dark[6],
     }),
   },
 
   subLink: {
-    width: "100%",
-    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-    borderRadius: theme.radius.md,
-
+    width: "117px",
+    height: "54px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "15px 28px",
+    gap: "10px",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: "16px",
+    lineHeight: "24px",
     ...theme.fn.hover({
       backgroundColor:
         theme.colorScheme === "dark"
@@ -147,9 +146,22 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <Header height={60} px="md" style={{ position: "fixed" }}>
+    <Header
+      height={60}
+      px="md"
+      style={{ position: "fixed", backgroundColor: "#0D0D0D", border: "none" }}
+    >
       <Group position="apart" sx={{ height: "100%" }}>
-        <MantineLogo size={30} />
+        <p
+          style={{
+            color: "#FFFFFF",
+            font: "18px",
+            fontWeight: "500",
+            lineHeight: "24px",
+          }}
+        >
+          Dr. Simple
+        </p>
 
         <Group
           sx={{ height: "100%" }}
@@ -169,12 +181,31 @@ export function HeaderMegaMenu() {
 
         <Group className={classes.hiddenMobile}>
           <Button
-            onClick={() => navigate("/Login-or-Signup")}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "#FFFFFF",
+              font: "18px",
+              fontWeight: "500",
+              lineHeight: "24px",
+            }}
+            onClick={() => navigate("/auth")}
             variant="default"
           >
             Log in
           </Button>
-          <Button onClick={() => navigate("/Login-or-Signup")}>Sign up</Button>
+          <Button
+            style={{
+              backgroundImage: "linear-gradient(to right,#9B51E0,#3081ED)",
+              border: "none",
+              font: "16px",
+              fontWeight: "500",
+              lineHeight: "24px",
+            }}
+            onClick={() => navigate("/auth")}
+          >
+            Sign up
+          </Button>
         </Group>
 
         <Burger

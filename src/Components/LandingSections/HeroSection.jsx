@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TypingTextEffect from "../../Utilities/TypingTextEffect";
 import Button from "../Button";
-import background from "../../Assets/background.png";
+import SectionDecoration from "../SectionDecoration";
 
 const TITLE = "Dr. Sample";
 const TEXT =
@@ -11,6 +11,7 @@ const TEXT =
 const HeroSection = () => {
   return (
     <ImageContainer>
+      <SectionDecoration left={0} />
       <HeroTextContainer>
         <HeroTextTitle>{TITLE}</HeroTextTitle>
         <HeroText>
@@ -18,7 +19,6 @@ const HeroSection = () => {
         </HeroText>
         <Button buttonText="Try it now!" />
       </HeroTextContainer>
-      <Image src={background} />
     </ImageContainer>
   );
 };
@@ -42,9 +42,9 @@ const HeroTextContainer = styled.div`
 `;
 
 const HeroTextTitle = styled.p`
-  font-size: 96px;
-  font-weight: 600;
-  font-family: "Open Sans", sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 62px;
   color: white;
   @media (max-width: 800px) {
     font-size: 3rem;
@@ -52,7 +52,9 @@ const HeroTextTitle = styled.p`
 `;
 
 const HeroText = styled.p`
-  font-size: 1.5rem;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 40px;
   max-width: 35rem;
   color: white;
 

@@ -9,6 +9,7 @@ import {
   Button,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import SectionDecoration from "../SectionDecoration";
 
 const ContactUsSection = () => {
   const form = useForm({
@@ -26,66 +27,75 @@ const ContactUsSection = () => {
   });
 
   return (
-    <SectionContainer>
-      <form onSubmit={form.onSubmit(() => {})}>
-        <Title
-          order={2}
-          size="h1"
-          sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}` })}
-          weight={900}
-          align="left"
-        >
-          Contact Us
-        </Title>
+    <>
+      <SectionDecoration left={0} />
+      <SectionContainer>
+        <form onSubmit={form.onSubmit(() => {})}>
+          <Title
+            order={2}
+            size="h1"
+            sx={(theme) => ({ color: "#FFFFFF" })}
+            weight={900}
+            align="left"
+          >
+            Contact Us
+          </Title>
 
-        <SimpleGrid
-          cols={2}
-          mt="xl"
-          breakpoints={[{ maxWidth: "sm", cols: 1 }]}
-        >
+          <SimpleGrid
+            cols={2}
+            mt="xl"
+            breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+          >
+            <TextInput
+              label="Name"
+              placeholder="Your name"
+              name="name"
+              variant="filled"
+              {...form.getInputProps("name")}
+            />
+            <TextInput
+              label="Email"
+              placeholder="Your email"
+              name="email"
+              variant="filled"
+              {...form.getInputProps("email")}
+            />
+          </SimpleGrid>
+
           <TextInput
-            label="Name"
-            placeholder="Your name"
-            name="name"
+            label="Subject"
+            placeholder="Subject"
+            mt="md"
+            name="subject"
             variant="filled"
-            {...form.getInputProps("name")}
+            {...form.getInputProps("subject")}
           />
-          <TextInput
-            label="Email"
-            placeholder="Your email"
-            name="email"
+          <Textarea
+            mt="xl"
+            label="Message"
+            placeholder="Your message"
+            maxRows={10}
+            minRows={5}
+            autosize
+            name="message"
             variant="filled"
-            {...form.getInputProps("email")}
+            {...form.getInputProps("message")}
           />
-        </SimpleGrid>
 
-        <TextInput
-          label="Subject"
-          placeholder="Subject"
-          mt="md"
-          name="subject"
-          variant="filled"
-          {...form.getInputProps("subject")}
-        />
-        <Textarea
-          mt="xl"
-          label="Message"
-          placeholder="Your message"
-          maxRows={10}
-          minRows={5}
-          autosize
-          name="message"
-          variant="filled"
-          {...form.getInputProps("message")}
-        />
-
-        <Group position="center" mt="xl">
-          <Button type="submit" size="md">
-            Send message
-          </Button>
-        </Group>
-      </form>
-    </SectionContainer>
+          <Group position="center" mt="xl">
+            <Button
+              style={{
+                backgroundImage: "linear-gradient(to right,#9B51E0,#3081ED)",
+              }}
+              type="submit"
+              size="md"
+            >
+              Send message
+            </Button>
+          </Group>
+        </form>
+      </SectionContainer>
+    </>
   );
 };
 
