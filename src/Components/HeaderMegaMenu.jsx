@@ -10,7 +10,6 @@ import {
   Burger,
   rem,
 } from "@mantine/core";
-import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconNotification,
@@ -30,10 +29,9 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     textDecoration: "none",
-    color: "#FFFFFF",
-    fontWeight: 600,
-    fontSize: "18px",
-    lineHeight: "24px",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    fontWeight: 500,
+    fontSize: theme.fontSizes.sm,
 
     [theme.fn.smallerThan("sm")]: {
       height: rem(42),
@@ -45,24 +43,16 @@ const useStyles = createStyles((theme) => ({
     ...theme.fn.hover({
       backgroundColor:
         theme.colorScheme === "dark"
-          ? theme.colors.gray[0]
-          : theme.colors.dark[6],
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
     }),
   },
 
   subLink: {
-    width: "117px",
-    height: "54px",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "15px 28px",
-    gap: "10px",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "16px",
-    lineHeight: "24px",
+    width: "100%",
+    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+    borderRadius: theme.radius.md,
+
     ...theme.fn.hover({
       backgroundColor:
         theme.colorScheme === "dark"
@@ -146,15 +136,11 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <Header
-      height={60}
-      px="md"
-      style={{ position: "fixed", backgroundColor: "#0D0D0D", border: "none" }}
-    >
+    <Header height={60} px="md" style={{ position: "fixed" }}>
       <Group position="apart" sx={{ height: "100%" }}>
         <p
           style={{
-            color: "#FFFFFF",
+            color: "#000",
             font: "18px",
             fontWeight: "500",
             lineHeight: "24px",
@@ -182,9 +168,6 @@ export function HeaderMegaMenu() {
         <Group className={classes.hiddenMobile}>
           <Button
             style={{
-              background: "transparent",
-              border: "none",
-              color: "#FFFFFF",
               font: "18px",
               fontWeight: "500",
               lineHeight: "24px",
@@ -196,7 +179,7 @@ export function HeaderMegaMenu() {
           </Button>
           <Button
             style={{
-              backgroundImage: "linear-gradient(to right,#9B51E0,#3081ED)",
+              backgroundColor: "#228be6",
               border: "none",
               font: "16px",
               fontWeight: "500",

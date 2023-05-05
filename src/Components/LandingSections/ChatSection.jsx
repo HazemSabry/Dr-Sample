@@ -34,7 +34,6 @@ const ChatSection = () => {
         element && element.getBoundingClientRect().top < window.innerHeight;
 
       setIsElementEntered(isInViewport);
-      console.log(isElementEntered);
     });
   }, []);
 
@@ -108,26 +107,25 @@ const ChatSection = () => {
   }, [isElementEntered]);
 
   return (
-    <>
-      <SectionDecoration right={0} />
-      <SectionContainer>
-        <ChatArea id="ChatArea" ref={containerRef}>
-          {messages}
-          <WaitingMassage avatar={BOTAVATAR} waitStat={waitStat} />
-        </ChatArea>
-      </SectionContainer>
-    </>
+    <SectionContainer>
+      <ChatArea id="ChatArea" ref={containerRef}>
+        {messages}
+        <WaitingMassage avatar={BOTAVATAR} waitStat={waitStat} />
+      </ChatArea>
+    </SectionContainer>
   );
 };
 
 const SectionContainer = styled.div`
   height: 90vh;
   padding: 10% 10%;
+  display: flex;
+  justify-content: center;
 `;
 
 const ChatArea = styled.div`
   height: 100%;
-  width: 100%;
+  width: 50%;
   padding: 1rem;
   gap: 0.5rem;
   background-color: #1d1e23;

@@ -34,7 +34,7 @@ const ContactUsSection = () => {
           <Title
             order={2}
             size="h1"
-            sx={(theme) => ({ color: "#FFFFFF" })}
+            sx={(theme) => ({})}
             weight={900}
             align="left"
           >

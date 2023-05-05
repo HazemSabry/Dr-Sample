@@ -22,7 +22,6 @@ const TypingTextEffect = ({ text }) => {
 
     return () => clearInterval(intervalId);
   }, [textArray]);
-
   return <span>{displayedText}</span>;
 };
 
